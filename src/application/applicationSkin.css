@@ -1,0 +1,583 @@
+.root{
+	-fx-displayColor: #808080;
+	-fx-buttonsColor: #ffffff; 
+	-fx-functionsColor: #804d80;
+	-fx-textColor: black;
+}
+#mainCalculatorTabPane{
+	-fx-background-color: -fx-functionsColor;
+}
+/* #mainCalculatorTab{
+	-fx-background-color: -fx-displayColor;
+}*/
+#mainCalculatorAnchorPane{
+	-fx-background-color: -fx-displayColor;
+}
+.tab-pane .tab-header-area .tab-header-background {
+    	-fx-opacity: 0;
+	}
+
+	.tab-pane
+	{
+    	-fx-tab-min-width:90px;
+	}
+
+	.tab{
+    	-fx-background-insets: 0 1 0 1,0,0;
+    	-fx-background-color: -fx-functionsColor;
+	}
+	.tab-pane .tab:selected
+	{
+    	-fx-background-color: -fx-displayColor;
+	}
+
+	.tab .tab-label { 
+    	-fx-alignment: CENTER;
+    	-fx-text-fill: -fx-textColor;
+    	-fx-font-size: 12px;
+    	-fx-font-weight: bold;
+	}
+
+
+	.tab-pane:top *.tab-header-area {
+   	 -fx-background-insets: 0, 0 0 1 0;
+     -fx-padding: 0.416667em 0.166667em 0.0em 0.0em;
+	}
+	.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    	-fx-border-color: transparent;
+	}
+#settings{
+	-fx-text-fill: -fx-textColor;
+}
+#previousEntryTextField{
+	-fx-background-color: transparent;
+	-fx-text-fill: -fx-textColor;
+	-fx-accent: -fx-functionsColor;
+}
+#currentEntryTextField{
+	-fx-padding: 3;
+	-fx-text-fill: -fx-textColor;
+	-fx-background-color: transparent;
+	-fx-border-radius: 0;
+	-fx-accent: -fx-functionsColor;
+}
+#memoryRecallClear{
+	-fx-text-fill: -fx-textColor;
+}
+#memoryRecord{
+	-fx-text-fill: -fx-textColor;
+}
+
+#memoryTextField{
+	-fx-text-fill: -fx-textColor;
+	-fx-accent: -fx-functionsColor;
+}
+#calculatorMode{
+	-fx-text-fill: -fx-textColor;
+}
+#num1{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#num2{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#num3{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#moreFunctions{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#moreFunctionsArrow{
+	-fx-text-fill: -fx-textColor;
+}
+#num4{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#num5{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#num6{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#backspace{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#ac{
+	-fx-text-fill: -fx-textColor;
+}
+#num7{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#num8{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#num9{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#plus{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#pi{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#num0{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#point{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-border-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#minus{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#percent{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#pars{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#powerOf{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#multiplication{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#enter{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#powerOf2{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#root2{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#division{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#historyLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#extraFunctionsAnchorPane{
+	-fx-background-color: -fx-displayColor;
+}
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+
+.scroll-pane {
+   -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: -fx-functionsColor;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-functionsColor;
+    -fx-background-radius: 0;
+}
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+}
+#historyTextArea{
+	-fx-text-fill: -fx-textColor;
+	-fx-highlight-fill: -fx-functionsColor;
+}
+.text-area {
+    -fx-background-insets: 0;
+   
+}
+
+.text-area .content {
+    -fx-background-color: transparent, transparent, transparent, transparent;
+}
+
+.text-area:focused .content {
+     -fx-background-color: transparent, transparent, transparent, transparent;
+}
+
+.text-area:focused {
+    -fx-highlight-fill: -fx-buttonsColor;
+}
+
+.text-area .content {
+    -fx-padding: 10px;
+    -fx-highlight-fill: -fx-buttonsColor;
+}
+#decimalToFraction{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#factorial{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#clearHistory{
+	-fx-background-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#arc{
+	-fx-text-fill: -fx-textColor;
+}
+#sin{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#cos{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#tan{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#csc{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#sec{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#cot{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#log10{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#ln{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#eButton{
+	-fx-background-color: -fx-functionsColor;
+	-fx-border-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#dividerLine{
+	-fx-stroke: -fx-textColor;
+}
+#settingsVbox{
+	-fx-background-color: -fx-functionsColor;
+}
+#lookAndFeelAchorPane{
+	-fx-background-color: -fx-displayColor;
+}
+#lookAndFeelLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#lookAndFeelLine{
+	-fx-stroke: -fx-textColor;
+}
+#colorsLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#displayColorLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#displayColorPicker{
+	-fx-background-color: -fx-buttonsColor; 
+}
+#displayModel{
+	-fx-fill: -fx-displayColor;
+}
+#numbersColorLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#numbersColorPicker{
+	-fx-background-color: -fx-buttonsColor;
+}
+#numbersModel{
+	-fx-fill: -fx-buttonsColor;
+}
+#functionsColorLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#functionsColorPicker{
+	-fx-background-color: -fx-buttonsColor;
+}
+#functionsModel{
+	-fx-fill: -fx-functionsColor;
+}
+#textColorLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#textColorPicker{
+	-fx-background-color: -fx-buttonsColor;
+}
+.custom-color-dialog {
+    -fx-control-inner-background: -fx-buttonsColor;
+    
+}
+.custom-color-dialog, .color-picker {
+    -fx-control-inner-background: -fx-buttonsColor;
+    -fx-background: -fx-buttonsColor;
+    -fx-background-radius: 0;
+}
+#themesLine{
+	-fx-stroke: -fx-textColor;
+}
+#themesLabel{
+	-fx-text-fill: -fx-textColor;
+}
+.radio-button:selected .radio .dot {
+    -fx-background-color: -fx-textColor;
+}
+.radio-button .radio {
+    -fx-background-color: -fx-buttonsColor;
+}
+#lightThemeRadio{
+	-fx-text-fill: -fx-textColor;
+}
+#darkThemeRadio{
+	-fx-text-fill: -fx-textColor;
+}
+#aboutAchorPane{
+	-fx-background-color: -fx-displayColor;
+}
+#aboutLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#aboutLine{
+	-fx-stroke: -fx-textColor;
+}
+#aboutTextArea{
+	-fx-text-fill: -fx-textColor;
+}
+#preferencesAchorPane{
+	-fx-background-color: -fx-displayColor;
+}
+#perferencesLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#perferencesLine{
+	-fx-stroke: -fx-textColor;
+}
+#calculationsLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#outputLengthLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#outputLengthTextField{
+	-fx-text-fill: -fx-textColor;
+	-fx-background-color: -fx-buttonsColor;
+	-fx-accent: -fx-functionsColor;
+}
+#elementButton{
+	-fx-text-fill: -fx-textColor;
+}
+#elementLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#moreFunctionsAnchorPane{
+	-fx-background-color: -fx-displayColor;
+}
+#moreFunctionsTextField{
+	-fx-text-fill: -fx-textColor;
+	-fx-accent: -fx-functionsColor;
+}
+#searchLine{
+	-fx-stroke: -fx-textColor;
+}
+#addButton{
+	-fx-text-fill: -fx-textColor;
+}
+#moreFunctionsScrollPane{
+	-fx-background-color: -fx-functionsColor;
+}
+#moreFunctionsGridPane{
+	-fx-background-color: -fx-functionsColor;
+}
+#newFunctionsAnchorPane{
+	-fx-background-color: -fx-textColor;
+}
+#newFunctionTitleTextField{
+	-fx-background-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#newFunctionEquationTextArea{
+	-fx-control-inner-background:-fx-buttonsColor;
+	-fx-background-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#newFunctionButton{
+	-fx-background-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#newGraphButton{
+	-fx-background-color: -fx-functionsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#customFunctionAnchorPane{
+	-fx-background-color: -fx-buttonsColor;
+}
+#customFunctionTitle{
+	-fx-background-color: -fx-displayColor;
+	-fx-text-fill: -fx-textColor;
+}
+#customFunctionEquation{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+	-fx-highlight-fill: -fx-functionsColor;
+}
+#customFunctionVariableGridPane{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#customGraphAnchorPane{
+	-fx-background-color: -fx-buttonsColor;
+}
+#customGraphTitle{
+	-fx-background-color: -fx-displayColor;
+	-fx-text-fill: -fx-textColor;
+	-fx-highlight-fill: -fx-functionsColor;
+}
+#customGraphEquation{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#customGraphDomainLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#customGraphDomainBottom{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+	-fx-highlight-fill: -fx-functionsColor;
+}
+#customGraphDomainComma{
+	-fx-text-fill: -fx-textColor;
+}
+#customGraphDomainTop{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+	-fx-highlight-fill: -fx-functionsColor;
+}
+#customGraphRangeLabel{
+	-fx-text-fill: -fx-textColor;
+}
+#customGraphRangeBottom{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+	-fx-highlight-fill: -fx-functionsColor;
+}
+#customGraphRangeComma{
+	-fx-text-fill: -fx-textColor;
+}
+#customGraphRangeTop{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+	-fx-highlight-fill: -fx-functionsColor;
+}
+#customGraphVariableGridAnchorPane{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+.chart-plot-background {
+    -fx-background-color: -fx-displayColor;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: -fx-textColor;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: -fx-textColor;
+}
+.chart-legend-item-symbol{
+   -fx-background-radius: 0;
+}
+.chart-series-line {    
+    -fx-stroke-width: 2px;
+    -fx-stroke: -fx-textColor;
+}
+.chart-vertical-zero-line{
+    -fx-stroke: -fx-textColor;
+    -fx-stroke-width: 2px;
+}
+.chart-horizontal-zero-line{
+    -fx-stroke: -fx-textColor;
+    -fx-stroke-width: 2px;
+}
+#customVariableAnchorPane{
+	-fx-background-color: -fx-buttonsColor;
+}
+#customVariableLabel{
+	-fx-background-color: -fx-buttonsColor;
+	-fx-text-fill: -fx-textColor;
+}
+#customVariableTextArea{
+	-fx-text-fill: -fx-textColor;
+	-fx-highlight-fill: -fx-functionsColor;
+}
