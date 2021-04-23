@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!-- Copyright 2020, 2021 Kevin Pember -->
 <!-- 
  	This file is part of Recursive.
@@ -16,6 +17,7 @@
     You should have received a copy of the GNU General Public License
     along with Recursive.  If not, see <https://www.gnu.org/licenses/>.
  -->
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -29,7 +31,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <TextArea id="customVariableTextArea" fx:id="entryField" focusTraversable="false" layoutX="46.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyTyped="#onVariableTyped" prefHeight="39.0" prefWidth="65.0" style="-fx-control-inner-background: transparent; -fx-background-color: -fx-control-inner-background; -fx-background-radius: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TextArea id="customVariableTextArea" fx:id="entryField" focusTraversable="false" layoutX="46.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyReleased="#onNavgation" onKeyTyped="#onVariableTyped" prefHeight="39.0" prefWidth="65.0" style="-fx-control-inner-background: transparent; -fx-background-color: -fx-control-inner-background; -fx-background-radius: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

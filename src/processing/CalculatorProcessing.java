@@ -19,6 +19,7 @@ package processing;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 
 import javafx.application.Platform;
@@ -26,6 +27,7 @@ import javafx.stage.Stage;
 
 public class CalculatorProcessing {
 	String piCon = "3.14159265358979323846264338327950288419716939937510582097494459230781640628";
+	String eCon = "2.71828182845904523536028747135266249775724709369995957496696762772407663035";
 	public double domainBottom = -10;
 	public double domainTop = 10;
 	public double rangeBottom = -10;
@@ -40,7 +42,7 @@ public class CalculatorProcessing {
 		this.cacMode = cacMode;
 	}
 	// Method that is the base of the Calculator that finds operators and calls the methods needed to solve them
-	public String solve(String userInput) {
+	public String solve(String userInput, boolean end) {
 		 System.out.println(mc.toString());
 		 System.out.println("Input math ran");
 		 LinkedList<Integer> parPos = new LinkedList<Integer>();
@@ -51,14 +53,14 @@ public class CalculatorProcessing {
 				switch(userInput.charAt(i)) {
 				  case('π'):
 					  System.out.println(userInput.substring(i,i+1));
-					  userInput = userInput.substring(0,i) + mutiNeeded(i,i+1,userInput,piCon) + userInput.substring(i+1);
+					  userInput = userInput.substring(0,i) + mutiNeeded(i,i+1,userInput,piCon.substring(0,mc.getPrecision()-1)) + userInput.substring(i+1);
 				  break;
 				  case('e'): 
 					System.out.println(userInput.substring(i,i+1));
 				    if(userInput.charAt(i-1) == 's') {
 				    	break;
 				    }
-					userInput = userInput.substring(0,i) + mutiNeeded(i,i+1,userInput,"2.718281828") + userInput.substring(i+1);
+					userInput = userInput.substring(0,i) + mutiNeeded(i,i+1,userInput,eCon.substring(0,mc.getPrecision()-1)) + userInput.substring(i+1);
 				  break;
 				}
 		 }
@@ -83,56 +85,65 @@ public class CalculatorProcessing {
 		 for(int i = 0; i < userInput.length(); i++) {
 			switch(userInput.charAt(i)) {
 			  case('²'): 
-				System.out.println(Double.parseDouble(readerBack(userInput.substring(0,i)))+"²");
-				userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+ mutiNeeded(i-readerBack(userInput.substring(0,i)).length(),i+1,userInput,""+ new BigDecimal(readerBack(userInput.substring(0,i))).pow(2))+userInput.substring(i+1);
-				//i = 0;
+				if(userInput.charAt(i-1) != ',') {
+					System.out.println(Double.parseDouble(readerBack(userInput.substring(0,i)))+"²");
+					userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+ mutiNeeded(i-readerBack(userInput.substring(0,i)).length(),i+1,userInput,""+ new BigDecimal(readerBack(userInput.substring(0,i))).pow(2))+userInput.substring(i+1);
+					//i = 0;
+				}
 			  break;
-			  case('^'): 
-				System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+userInput.substring(i+1).length()+1));
-				userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+BigDecimal.valueOf(Math.pow(new BigDecimal(readerBack(userInput.substring(0,i))).doubleValue(),new BigDecimal(readerFront(userInput.substring(i+1))).doubleValue()))+userInput.substring(i+userInput.substring(i+1).length()+1);
-				i = 0;
+			  case('^'):
+				if(userInput.charAt(i-1) != ',') {
+					System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+userInput.substring(i+1).length()+1));
+					userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+BigDecimal.valueOf(Math.pow(new BigDecimal(readerBack(userInput.substring(0,i))).doubleValue(),new BigDecimal(readerFront(userInput.substring(i+1))).doubleValue()))+userInput.substring(i+userInput.substring(i+1).length()+1);
+					i = 0;
+				}
 			  break;
 			  case('√'):
-				System.out.println(userInput.substring(i,i+readerFront(userInput.substring(i+1)).length()+1));
-				userInput = userInput.substring(0,i) + mutiNeeded(i,i+readerFront(userInput.substring(i+1)).length()+1,userInput,""+BigDecimal.valueOf(Math.sqrt(Double.parseDouble(readerFront(userInput.substring(i+1)))))) + userInput.substring(i+readerFront(userInput.substring(i+1)).length()+1);
-				i = 0;
+				if(userInput.charAt(i+1) != ',') {
+					System.out.println(userInput.substring(i,i+readerFront(userInput.substring(i+1)).length()+1));
+					userInput = userInput.substring(0,i) + mutiNeeded(i,i+readerFront(userInput.substring(i+1)).length()+1,userInput,""+BigDecimal.valueOf(Math.sqrt(Double.parseDouble(readerFront(userInput.substring(i+1)))))) + userInput.substring(i+readerFront(userInput.substring(i+1)).length()+1);
+					i = 0;
+				}
 			  break;
 			 }
 		 }
 		 for(int i = 0; i < userInput.length(); i++) {
 			 switch(userInput.charAt(i)) {
-			 
 			 case('×'):
-				 System.out.println((new BigDecimal(readerBack(userInput.substring(0,i)))+" "+(new BigDecimal(readerFront(userInput.substring(i+1)),mc))));
-				 userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+(new BigDecimal(readerBack(userInput.substring(0,i))).multiply(new BigDecimal(readerFront(userInput.substring(i+1)),mc),mc))+userInput.substring(i+(""+readerFront(userInput.substring(i+1))).length()+1);
-				 System.out.println("This is userInput"+userInput);
-				 i = 0;
+				 if(userInput.charAt(i-1) != ',') {
+					 System.out.println((new BigDecimal(readerBack(userInput.substring(0,i)))+" "+(new BigDecimal(readerFront(userInput.substring(i+1)),mc))));
+					 userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+(new BigDecimal(readerBack(userInput.substring(0,i))).multiply(new BigDecimal(readerFront(userInput.substring(i+1)),mc),mc))+userInput.substring(i+(""+readerFront(userInput.substring(i+1))).length()+1);
+					 System.out.println("This is userInput"+userInput);
+					 i = 0;
+				 }
 			 break;
 			 case('*'):
-				 System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+userInput.substring(i+1).length()+1));
-				 userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+(new BigDecimal(readerBack(userInput.substring(0,i))).multiply(new BigDecimal(readerFront(userInput.substring(i+1)),mc),mc))+userInput.substring(i+(""+readerFront(userInput.substring(i+1))).length()+1);
-				 i = 0;
+				 if(userInput.charAt(i-1) != ',') {
+					 System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+userInput.substring(i+1).length()+1));
+					 userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+(new BigDecimal(readerBack(userInput.substring(0,i))).multiply(new BigDecimal(readerFront(userInput.substring(i+1)),mc),mc))+userInput.substring(i+(""+readerFront(userInput.substring(i+1))).length()+1);
+					 i = 0;
+				 }
 			 break;
 			 case('÷'):
 				 System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+userInput.substring(i+1).length()+1));
-			 	 try {
-			 		 resultValue = ""+(new BigDecimal(readerBack(userInput.substring(0,i)),mc).divide(new BigDecimal(readerFront(userInput.substring(i+1)),mc),mc));
-			 		 System.out.println(resultValue);
-			 		 frontParse = i-readerBack(userInput.substring(0,i)).length();
-			 		 userInput = userInput.substring(0,frontParse)+resultValue+userInput.substring(i+(""+readerFront(userInput.substring(i+1))).length()+1);
-			 		 i = frontParse + resultValue.length()-1;
-			 		 System.out.println("i is :"+i);
-			 	 }catch(Exception e) {
-			 		System.out.println("Things wrong");
-			 		if(e instanceof ArithmeticException) {
-			 			 System.out.println("Divison by Zero");
-			   			 userInput = "undefined";
-			   		 }else if(e instanceof NumberFormatException){
-			   			
-			   			System.out.println("i is :"+i);
-			   		 }
+			 	 if(userInput.charAt(i-1) != ',') {
+			 		 try {
+			 			 resultValue = ""+(new BigDecimal(readerBack(userInput.substring(0,i)),mc).divide(new BigDecimal(readerFront(userInput.substring(i+1)),mc),mc));
+			 			 System.out.println(resultValue);
+			 			 frontParse = i-readerBack(userInput.substring(0,i)).length();
+			 			 userInput = userInput.substring(0,frontParse)+resultValue+userInput.substring(i+(""+readerFront(userInput.substring(i+1))).length()+1);
+			 			 i = frontParse + resultValue.length()-1;
+			 			 System.out.println("i is :"+i);
+			 		 }catch(Exception e) {
+			 			 System.out.println("Things wrong");
+			 			 if(e instanceof ArithmeticException) {
+			 				 System.out.println("Divison by Zero");
+			 				 userInput = "undefined";
+			 			 }else if(e instanceof NumberFormatException){
+			 				 System.out.println("i is :"+i);
+			 			 }
+			 		 }
 			 	 }
-				 
 			 break;
 			 case('/'):
 			   if(userInput.charAt(i-1) != ',') {
@@ -163,14 +174,18 @@ public class CalculatorProcessing {
 			   }
 			 break;
 			 case('%'):
-				 System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+userInput.substring(i+1).length()+1));
-				 userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+(new BigDecimal(readerBack(userInput.substring(0,i))).multiply(new BigDecimal(readerFront(userInput.substring(i+1)),mc)).divide(BigDecimal.valueOf(100),mc))+userInput.substring(i+(""+readerFront(userInput.substring(i+1))).length()+1);
-				 i = 0;
+				 if(userInput.charAt(i-1) != ',') {
+					 System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+userInput.substring(i+1).length()+1));
+					 userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+(new BigDecimal(readerBack(userInput.substring(0,i))).multiply(new BigDecimal(readerFront(userInput.substring(i+1)),mc)).divide(BigDecimal.valueOf(100),mc))+userInput.substring(i+(""+readerFront(userInput.substring(i+1))).length()+1);
+					 i = 0;
+				 }
 			 break;
 			 case('!'):
-				 System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+1));
-				 userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+mutiNeeded(i-readerBack(userInput.substring(0,i)).length(),i+1,userInput,""+factorialMethod(readerBack(userInput.substring(0,i))))+userInput.substring(i+1);
-				 i = 0;
+				 if(userInput.charAt(i-1) != ',') {
+					 System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+1));
+					 userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+mutiNeeded(i-readerBack(userInput.substring(0,i)).length(),i+1,userInput,""+factorialMethod(readerBack(userInput.substring(0,i))))+userInput.substring(i+1);
+					 i = 0;
+				 }
 			 break;
 			 
 			 }
@@ -178,14 +193,14 @@ public class CalculatorProcessing {
 		 for(int i = 1; i < userInput.length(); i++) {
 			 switch(userInput.charAt(i)) {
 			 	case('+'):
-			 		if(userInput.charAt(i-1) != 'E') {
+			 		if(userInput.charAt(i-1) != 'E' && userInput.charAt(i-1) != ',') {
 			 			System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+userInput.substring(i+1).length()+1));
 			 			userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+(new BigDecimal(readerBack(userInput.substring(0,i))).add(new BigDecimal(readerFront(userInput.substring(i+1)),mc),mc))+userInput.substring(i+(""+readerFront(userInput.substring(i+1))).length()+1);
 			 			i = 0;
 			 		}
 			 	break;
 			 	case('-'):
-			 		if(userInput.charAt(i-1) != 'E') {
+			 		if(userInput.charAt(i-1) != 'E' && userInput.charAt(i-1) != ',') {
 			 			System.out.println(userInput.substring(i-readerBack(userInput.substring(0,i)).length(),i+userInput.substring(i+1).length()+1));
 			 			userInput = userInput.substring(0,i-readerBack(userInput.substring(0,i)).length())+(new BigDecimal(readerBack(userInput.substring(0,i))).subtract(new BigDecimal(readerFront(userInput.substring(i+1)),mc),mc))+userInput.substring(i+(""+readerFront(userInput.substring(i+1))).length()+1);
 			 			i = 0;
@@ -203,6 +218,15 @@ public class CalculatorProcessing {
 			 	break;
 			 }
 			}
+		 BigDecimal piDreriv = new BigDecimal(piCon.substring(0,mc.getPrecision()-1));
+		 System.out.println("Going into PI method " + userInput + " vs. "+ new BigDecimal(userInput).divide(piDreriv,mc));
+		 if((""+new BigDecimal(userInput)).length() > (""+new BigDecimal(userInput).divide(piDreriv,mc)).length()&& Double.parseDouble(userInput) != 0 && end) {
+			if(new BigDecimal(userInput).divide(piDreriv,mc).doubleValue() == 1) {
+				userInput = "π";
+			}else {
+				userInput =  new BigDecimal(userInput).divide(piDreriv,mc) + "π";
+			}
+		 }
 		 return userInput;
 	}
 
@@ -289,7 +313,7 @@ public class CalculatorProcessing {
 	 	for(int i = parPos.getFirst() + 1; i < fullInput.length(); i++) {
 		    	 if (fullInput.charAt(i) == ')') {
 		    		 System.out.println(") found run from there");
-		    		 parResult = solve(fullInput.substring(parPos.getFirst() + 1, i));
+		    		 parResult = solve(fullInput.substring(parPos.getFirst() + 1, i),false);
 		    		 System.out.println(parResult);
 		    		 fullInput = frontParMethods(fullInput,parResult,i, parPos);
 		    		 parPos.removeFirst();
@@ -299,7 +323,7 @@ public class CalculatorProcessing {
 		    	 if(i == fullInput.length()-1 && fullInput.charAt(i) != ')') {
 		    		 System.out.println(") not found run from end");
 		    		 fullInput += ")";
-		    		 parResult = solve(fullInput.substring(parPos.getFirst() + 1,fullInput.length()-1));
+		    		 parResult = solve(fullInput.substring(parPos.getFirst() + 1,fullInput.length()-1),false);
 		    		 System.out.println(parResult);
 		    		 fullInput = frontParMethods(fullInput,parResult,fullInput.length()-1, parPos);
 		    		 parPos.removeFirst();
@@ -337,7 +361,7 @@ public class CalculatorProcessing {
 				 } else if(containsValue(fullInput,"cos⁻¹",testValue = parPos.getFirst()-5,parPos.getFirst())) {
 					 if(cacMode == true) {
 				 			System.out.println(BigDecimal.valueOf(Math.acos(Math.toRadians((new BigDecimal(parResult,mc).doubleValue())))));
-				 			fullInput = fullInput.substring(0,parPos.getFirst()-5) + mutiNeeded(parPos.getFirst()-5,i+1,fullInput,""+BigDecimal.valueOf(Math.acos((new BigDecimal(parResult,mc).doubleValue()))).multiply(new BigDecimal(180,mc).divide(new BigDecimal(piCon,mc),mc),mc))  + fullInput.substring(i+1);
+				 			fullInput = fullInput.substring(0,parPos.getFirst()-5) + mutiNeeded(parPos.getFirst()-5,i+1,fullInput,""+BigDecimal.valueOf(Math.acos(new BigDecimal(parResult,mc).doubleValue())).multiply(new BigDecimal(180,mc).divide(new BigDecimal(piCon,mc),mc),mc))  + fullInput.substring(i+1);
 				 		}else {
 				 			System.out.println(BigDecimal.valueOf(Math.acos((new BigDecimal(parResult,mc).doubleValue()))));
 				 			fullInput = fullInput.substring(0,parPos.getFirst()-5) + mutiNeeded(parPos.getFirst()-5,i+1,fullInput,""+BigDecimal.valueOf(Math.acos((new BigDecimal(parResult,mc).doubleValue())))) + fullInput.substring(i+1);
@@ -413,9 +437,9 @@ public class CalculatorProcessing {
 				 } else if(containsValue(fullInput,"sin",parPos.getFirst()-3,parPos.getFirst())) {
 					 System.out.println("sin found");
 					 if(cacMode == true) {
-						    System.out.println(BigDecimal.valueOf(Math.sin(Math.toRadians(Double.parseDouble(parResult)))));
+						    //System.out.println(BigDecimal.valueOf(Math.sin(Math.toRadians(Double.parseDouble(parResult)))));
 				 			fullInput = fullInput.substring(0,parPos.getFirst()-3) + mutiNeeded(parPos.getFirst()-3,i+1,fullInput,""+BigDecimal.valueOf(Math.sin((new BigDecimal(parResult,mc).multiply(new BigDecimal(piCon,mc).divide(new BigDecimal(180,mc),mc),mc)).doubleValue()))) + fullInput.substring(i+1);
-				 			System.out.println("This full input after sin interp "+ fullInput);
+				 			//System.out.println("This full input after sin interp "+ fullInput);
 				 			break;
 					    }else {
 				 			System.out.println(BigDecimal.valueOf(Math.sin(Double.parseDouble(parResult))));
@@ -432,21 +456,21 @@ public class CalculatorProcessing {
 				 }
 			 break;
 			 case('s'):
-				 if(containsValue(fullInput,"cos",parPos.getFirst()-3,parPos.getFirst())) {
+				  if(containsValue(fullInput,"arccos",parPos.getFirst()-6,parPos.getFirst())) {
+					 if(cacMode == true) {
+				 			//System.out.println(BigDecimal.valueOf(Math.acos(Math.toRadians(Double.parseDouble(parResult)))));
+				 			fullInput = fullInput.substring(0,parPos.getFirst()-6) + mutiNeeded(parPos.getFirst()-6,i+1,fullInput,""+BigDecimal.valueOf(Math.acos((new BigDecimal(parResult,mc).doubleValue()))).multiply(new BigDecimal(180,mc).divide(new BigDecimal(piCon,mc),mc),mc))  + fullInput.substring(i+1);
+				 		}else {
+				 			//System.out.println(BigDecimal.valueOf(Math.acos(Double.parseDouble(parResult))));
+				 			fullInput = fullInput.substring(0,parPos.getFirst()-6) + mutiNeeded(parPos.getFirst()-6,i+1,fullInput,""+BigDecimal.valueOf(Math.acos((new BigDecimal(parResult,mc).doubleValue())))) + fullInput.substring(i+1);
+				 		}
+				 } else if(containsValue(fullInput,"cos",parPos.getFirst()-3,parPos.getFirst())) {
 					 if(cacMode == true) {
 						    System.out.println(BigDecimal.valueOf(Math.cos(Math.toRadians(Double.parseDouble(parResult)))));
 				 			fullInput = fullInput.substring(0,parPos.getFirst()-3) + mutiNeeded(parPos.getFirst()-3,i+1,fullInput,""+BigDecimal.valueOf(Math.cos((new BigDecimal(parResult,mc).multiply(new BigDecimal(piCon,mc).divide(new BigDecimal(180,mc),mc),mc)).doubleValue()))) + fullInput.substring(i+1);
 				 		}else {
 				 			System.out.println(BigDecimal.valueOf(Math.cos(Double.parseDouble(parResult))));
 				 			fullInput = fullInput.substring(0,parPos.getFirst()-3) + mutiNeeded(parPos.getFirst()-3,i+1,fullInput,""+BigDecimal.valueOf(Math.cos((new BigDecimal(parResult,mc).doubleValue())))) + fullInput.substring(i+1);
-				 		}
-				 } else if(containsValue(fullInput,"arccos",parPos.getFirst()-6,parPos.getFirst())) {
-					 if(cacMode == true) {
-				 			System.out.println(BigDecimal.valueOf(Math.acos(Math.toRadians(Double.parseDouble(parResult)))));
-				 			fullInput = fullInput.substring(0,parPos.getFirst()-6) + mutiNeeded(parPos.getFirst()-6,i+1,fullInput,""+BigDecimal.valueOf(Math.acos((new BigDecimal(parResult,mc).doubleValue()))).multiply(new BigDecimal(180,mc).divide(new BigDecimal(piCon,mc),mc),mc))  + fullInput.substring(i+1);
-				 		}else {
-				 			System.out.println(BigDecimal.valueOf(Math.acos(Double.parseDouble(parResult))));
-				 			fullInput = fullInput.substring(0,parPos.getFirst()-6) + mutiNeeded(parPos.getFirst()-6,i+1,fullInput,""+BigDecimal.valueOf(Math.acos((new BigDecimal(parResult,mc).doubleValue())))) + fullInput.substring(i+1);
 				 		}
 				 }
 			 break;

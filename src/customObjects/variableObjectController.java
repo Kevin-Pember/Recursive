@@ -20,6 +20,7 @@ package customObjects;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -38,6 +39,29 @@ public class variableObjectController {
     
     private customFunctionPage page;
     
+    private boolean onEdge = false;
+    
+    @FXML
+    void onNavgation(KeyEvent event) {
+    	if(event.getCode() == KeyCode.LEFT) {
+    		if(entryField.getCaretPosition() == 0 && onEdge == true) {
+    			page.navigate(true);
+    		}else if(entryField.getCaretPosition() == 0) {
+    			onEdge = true;
+    		}else {
+    			onEdge = false;
+    		}
+    	}else if(event.getCode() == KeyCode.RIGHT) {
+    		if(entryField.getCaretPosition() == entryField.getText().length() && onEdge == true) {
+    			page.navigate(false);
+    		}else if(entryField.getCaretPosition() == entryField.getText().length()) {
+    			onEdge = true;
+    		}else {
+    			onEdge = false;
+    		}
+    	}
+    }
+    
     @FXML
     void onVariableTyped(KeyEvent event) {
     	if(event.toString().isEmpty() != true) {
@@ -45,7 +69,11 @@ public class variableObjectController {
     			page.updateLabel(varLabel.getText(), "x");
     		}else {
     			page.updateLabel(varLabel.getText(), entryField.getText());
+    			if(entryField.getCaretPosition() == entryField.getLength()) {
+    				onEdge = true;
+    			}
     		}
+    		System.out.println("The Variable Label focus is " + isFocused());
     	}
     }
     public void setVariable(String name) {
@@ -59,7 +87,7 @@ public class variableObjectController {
 			fontColor = "#FFFFFF";
 		}
     	variableAnchorPane.setStyle("-fx-control-inner-background: transparent;-fx-background-color: -fx-control-inner-background;-fx-text-fill: "+fontColor+";");
-    	//variableAnchorPane.setStyle("-fx-background-color: "+funcButtonsColor+";");
+    	
     }
     public void setReturnPage(customFunctionPage page) {
     	this.page = page;
@@ -69,5 +97,12 @@ public class variableObjectController {
     }
     public String getVariableValue() {
     	return entryField.getText();
+    }
+    public boolean isFocused() {
+    	return entryField.isFocused();
+    }
+    public void setFocused() {
+    	entryField.requestFocus();
+    	entryField.positionCaret(entryField.getText().length());
     }
 }

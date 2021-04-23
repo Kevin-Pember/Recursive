@@ -33,6 +33,7 @@ import javafx.scene.control.Button;
 	import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -100,6 +101,30 @@ public class customFunctionPage extends Main{
 	    @FXML
 	    private TextField rangeTop;
 	    
+	    @FXML
+	    private Button functionBack;
+	    
+	    @FXML
+	    private Button functionForward;
+	    
+	    @FXML
+	    private ImageView functionBackImageView;
+	    
+	    @FXML
+	    private ImageView functionForwardImageView;
+	    
+	    @FXML
+	    private Button graphBack;
+	    
+	    @FXML
+	    private Button graphForward;
+	    
+	    @FXML
+	    private ImageView graphBackImageView;
+	    
+	    @FXML
+	    private ImageView graphForwardImageView;
+	    
 	    protected String Title;
 	    
 	    protected String Equation;
@@ -117,6 +142,10 @@ public class customFunctionPage extends Main{
 	    protected boolean textColor;
 	    
 	    private CalculatorProcessing mainProcess;
+	    
+	    ArrayList<FXMLLoader> variables = new ArrayList<FXMLLoader>();
+	    ArrayList<variableObjectController> controllers = new ArrayList<variableObjectController>();
+	    ArrayList<Parent> parents = new ArrayList<Parent>();
 	    
 	    @FXML
 	    void onDomainBottomTyped(KeyEvent event) {
@@ -170,10 +199,22 @@ public class customFunctionPage extends Main{
 	    	}
 	    }
 
-	    
-	    ArrayList<FXMLLoader> variables = new ArrayList<FXMLLoader>();
-	    ArrayList<variableObjectController> controllers = new ArrayList<variableObjectController>();
-	    ArrayList<Parent> parents = new ArrayList<Parent>();
+	    @FXML
+	    void onFunctionBackPressed(ActionEvent event) {
+	    	navigate(true);
+	    }
+	    @FXML
+	    void onFunctionForwardPressed(ActionEvent event) {
+	    	navigate(false);
+	    }
+	    @FXML
+	    void onGraphBackPressed(ActionEvent event) {
+	    	navigate(true);
+	    }
+	    @FXML
+	    void onGraphForwardPressed(ActionEvent event) {
+	    	navigate(false);
+	    }
 	    public void setCalculatorProcess(CalculatorProcessing mainProcess) {
 	    	this.mainProcess = mainProcess;
 	    }
@@ -182,7 +223,10 @@ public class customFunctionPage extends Main{
 	    	this.numsButtonsColor = numsButtonsColor;
 	    	this.funcButtonsColor = funcButtonsColor;
 	    	this.textColor = textColor;
-	    	
+	    	functionBackImageView.setImage(new Image(iconColoration("moreFuncArrowIcon",textColor)));
+	    	functionForwardImageView.setImage(new Image(iconColoration("moreFuncArrowIcon",textColor)));
+	    	graphBackImageView.setImage(new Image(iconColoration("moreFuncArrowIcon",textColor)));
+	    	graphForwardImageView.setImage(new Image(iconColoration("moreFuncArrowIcon",textColor)));
 	    }
 	    public void onStartUp(String cs) {
 	    	System.out.println(cs);
@@ -302,20 +346,15 @@ public class customFunctionPage extends Main{
 			   }
 			   
 		   for(int i = 0; i < controllers.size();i++) {
-			   if(mainProcess.isNum(mainProcess.solve(controllers.get(i).getVariableValue()))) {
+			   if(mainProcess.isNum(controllers.get(i).getVariableValue())) {
 				   if(i == controllers.size()-1) {
 					   if(tempEquation.substring(0,tempEquation.indexOf('=')).length() > tempEquation.substring(tempEquation.indexOf('=')).length()) {
 						   if (tempEquation.substring(tempEquation.indexOf('=')+1).equals("o")) {
-							   tempEquation = tempEquation.substring(0,tempEquation.indexOf('=')+1) + mainProcess.solve(tempEquation.substring(0,tempEquation.indexOf('=')));
+							   tempEquation = tempEquation.substring(0,tempEquation.indexOf('=')+1) + mainProcess.solve(tempEquation.substring(0,tempEquation.indexOf('=')),true);
 						   } else if(tempEquation.substring(tempEquation.indexOf('=')-1).equals("o")) {
-							   tempEquation = mainProcess.solve(tempEquation.substring(tempEquation.indexOf('=')+1)) + tempEquation.substring(tempEquation.indexOf('='));
+							   tempEquation = mainProcess.solve(tempEquation.substring(tempEquation.indexOf('=')+1),true) + tempEquation.substring(tempEquation.indexOf('='));
 						   }
 					   }
-					   /*if(tempEquation.indexOf('o') > tempEquation.indexOf('=') && tempEquation.charAt(tempEquation.indexOf('o')-1) == '=') {
-						   tempEquation = tempEquation.substring(0,tempEquation.indexOf('=')+1) + mainProcess.solve(tempEquation.substring(0,tempEquation.indexOf('=')));
-					   } else if(tempEquation.indexOf('o') < tempEquation.indexOf('=') && tempEquation.charAt(tempEquation.indexOf('o')+1) == '=') {
-						   tempEquation = mainProcess.solve(tempEquation.substring(tempEquation.indexOf('=')+1)) + tempEquation.substring(tempEquation.indexOf('o')+1);
-					   } */ 
 				   }
 			   }else {
 				   break;
@@ -353,7 +392,7 @@ public class customFunctionPage extends Main{
 			   XYChart.Series<Double,Double> data = new XYChart.Series<Double,Double>();
 			   for(double i = mainProcess.domainBottom; i <= mainProcess.domainTop; i += .1) {
 				   System.out.println("Graph iteration");
-				  data.getData().add(new XYChart.Data<Double,Double>((double)i,Double.parseDouble(mainProcess.solve(tempEquation.replaceAll(controllers.get(count.get(0)).getVariableName(), ""+i)))));
+				  data.getData().add(new XYChart.Data<Double,Double>((double)i,Double.parseDouble(mainProcess.solve(tempEquation.replaceAll(controllers.get(count.get(0)).getVariableName(), ""+i),true))));
 			   }
 			   graph.setCreateSymbols(false);
 			   graph.getData().add(data);
@@ -361,5 +400,19 @@ public class customFunctionPage extends Main{
 			   
 		   }
 		   
+	   }
+	   int focuslocation = 0;
+	   public void navigate(boolean backForward) {
+		   controllers.forEach((n) -> {
+			   if(n.isFocused()) {
+				   System.out.println("Location is "+controllers.indexOf(n));
+				   focuslocation = controllers.indexOf(n);
+			   }
+		   });
+		   if(backForward) {
+			   controllers.get(focuslocation-1).setFocused();
+		   }else {
+			   controllers.get(focuslocation+1).setFocused();
+		   }
 	   }
 }
