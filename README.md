@@ -1,2 +1,4 @@
 # Recursive
-A semi-programmable calculator
+## [Download](https://github.com/Kevin-Pember/Recursive/releases/download/1.2/RecursiveSetup.exe)
+### A semi-programmable calculator, currently in pre release state working out bugs
+
