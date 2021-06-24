@@ -1,7 +1,0 @@
-Plus»x+y=o»v1»Function»
-Minus»x-y=o»v1»Function»
-Multiply»x*y=o»v1»Function»
-Division»x/y=o»v1»Function»
-Graphing»4x+c»v1»Graph»
-thiuh»x^2»v1»Graph»
-vetor x»m*cos(d)=o»v1»Function»

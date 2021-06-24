@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright 2020, 2021 Kevin Pember -->
+<!-- 
+ 	This file is part of Recursive.
+
+	Recursive is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Recursive is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Recursive.  If not, see <https://www.gnu.org/licenses/>.
+ -->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="138.0" prefWidth="160.0" style="-fx-padding: 0;" stylesheets="@application/applicationSkin.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="customObjects.moreFuncGroup">
+   <children>
+      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="30.0" prefHeight="96.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="35.0" minHeight="25.0" prefHeight="35.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label id="elementLabel" fx:id="buttonEquationLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="10.0" minWidth="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="102.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-padding: 5;" text="Equation" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label id="elementNameLabel" fx:id="nameLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;" text="Label" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Button id="elementButton" fx:id="buttonElement" alignment="CENTER" contentDisplay="TOP" focusTraversable="false" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" onAction="#onElementPressed" prefHeight="138.0" prefWidth="160.0" style="-fx-background-color: transparent;" stylesheets="@application/applicationSkin.css" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button mnemonicParsing="false" onAction="#onXButtonPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent; -fx-padding: 0;" visible="false" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="xButton">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" fx:id="xIcon">
+               <image>
+                  <Image url="@xIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

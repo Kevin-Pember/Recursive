@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright 2020, 2021 Kevin Pember -->
+<!-- 
+ 	This file is part of Recursive.
+
+	Recursive is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Recursive is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Recursive.  If not, see <https://www.gnu.org/licenses/>.
+ -->
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="308.0" stylesheets="@application/applicationSkin.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="customObjects.customFunctionPage">
+   <children>
+      <AnchorPane id="customGraphAnchorPane" fx:id="graphTypeAchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="719.0" prefWidth="425.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label id="customGraphTitle" fx:id="GraphTitleArea" alignment="CENTER_RIGHT" prefHeight="89.0" prefWidth="412.0" style="-fx-padding: 10;" text="Title" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label id="customGraphEquation" fx:id="graphEquationLabel" layoutY="66.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="67.0" prefWidth="412.0" style="-fx-padding: 10;" text="Equation" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <GridPane layoutX="3.0" layoutY="125.0" prefHeight="569.0" prefWidth="412.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="125.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="519.0" minHeight="10.0" prefHeight="260.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="36.0" prefWidth="361.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="206.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="206.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="191.0">
+                           <children>
+                              <Label id="customGraphDomainLabel" layoutX="2.0" layoutY="11.0" prefHeight="27.0" prefWidth="53.0" text="Domain" AnchorPane.leftAnchor="2.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <GridPane layoutX="57.0" prefHeight="45.0" prefWidth="143.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="30.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField id="customGraphDomainBottom" fx:id="domainBottom" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyTyped="#onDomainBottomTyped" style="-fx-background-color: transparent;" />
+                                    <TextField id="customGraphDomainTop" fx:id="domainTop" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyTyped="#onDomainTopTyped" style="-fx-background-color: transparent;" GridPane.columnIndex="2" />
+                                    <Label id="customGraphDomainComma" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="8.0" text="," GridPane.columnIndex="1">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="191.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label id="customGraphDomainLabel" layoutX="2.0" layoutY="11.0" prefHeight="27.0" prefWidth="53.0" text="Range" AnchorPane.leftAnchor="2.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <GridPane layoutX="57.0" prefHeight="45.0" prefWidth="143.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <TextField id="customGraphRangeBottom" fx:id="rangeBottom" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyTyped="#onRangeBottomTyped" style="-fx-background-color: transparent;" />
+                                    <TextField id="customGraphRangeTop" fx:id="rangeTop" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyTyped="#onRangeTopTyped" GridPane.columnIndex="2" />
+                                    <Label id="customGraphDomainComma" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="8.0" text="," GridPane.columnIndex="1">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+                  <ScrollPane fx:id="graphVariableScrollPane" fitToWidth="true" prefHeight="138.0" prefWidth="412.0" style="-fx-padding: 0;" GridPane.rowIndex="1">
+                     <content>
+                        <AnchorPane id="customGraphVariableGridAnchorPane" fx:id="graphVariableAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="93.0" prefWidth="307.0">
+                           <children>
+                              <GridPane fx:id="graphVariableGridPane" prefHeight="137.0" prefWidth="308.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <LineChart fx:id="graph" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="268.0" prefWidth="308.0" style="-fx-horizontal-grid-lines-visible: false; -fx-vertical-grid-lines-visible: false;" GridPane.rowIndex="2">
+                    <xAxis>
+                      <NumberAxis fx:id="numberXaxis" lowerBound="-20.0" prefHeight="12.0" prefWidth="370.0" side="BOTTOM" tickLabelFill="WHITE" upperBound="20.0">
+                           <tickLabelFont>
+                              <Font size="11.0" />
+                           </tickLabelFont>
+                        </NumberAxis>
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="numberYAxis" lowerBound="-20.0" prefHeight="316.0" prefWidth="12.0" side="RIGHT" tickLabelFill="WHITE" upperBound="20.0">
+                           <tickLabelFont>
+                              <Font size="11.0" />
+                           </tickLabelFont>
+                        </NumberAxis>
+                    </yAxis>
+                  </LineChart>
+                  <Button fx:id="graphBack" focusTraversable="false" mnemonicParsing="false" onAction="#onGraphBackPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <graphic>
+                        <ImageView fx:id="graphBackImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+                           <image>
+                              <Image url="@MoreFuncArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="graphForward" focusTraversable="false" mnemonicParsing="false" onAction="#onGraphForwardPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <graphic>
+                        <ImageView fx:id="graphForwardImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@MoreFuncArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="customFunctionAnchorPane" fx:id="functionTypeAchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="412.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label id="customFunctionTitle" fx:id="functionName" alignment="CENTER_RIGHT" prefHeight="84.0" prefWidth="412.0" style="-fx-padding: 10;" text="Title" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <GridPane layoutY="83.0" prefHeight="611.0" prefWidth="412.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="83.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="100.0" minHeight="25.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="353.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextArea id="customFunctionEquation" fx:id="funcEquationLabel" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="54.0" prefWidth="412.0" stylesheets="@application/applicationSkin.css" wrapText="true">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextArea>
+                  <ScrollPane fx:id="functionVariableScrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="475.0" prefWidth="412.0" style="-fx-padding: 0;" GridPane.rowIndex="1">
+                    <content>
+                      <AnchorPane fx:id="functionVariableAnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="323.0" prefWidth="308.0" style="-fx-background-color: #303030;">
+                           <children>
+                              <GridPane id="customFunctionVariableGridPane" fx:id="functionVariableGridPane" prefHeight="475.0" prefWidth="308.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <Button fx:id="functionBack" focusTraversable="false" mnemonicParsing="false" onAction="#onFunctionBackPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                     <graphic>
+                        <ImageView fx:id="functionBackImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+                           <image>
+                              <Image url="@MoreFuncArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="functionForward" focusTraversable="false" mnemonicParsing="false" onAction="#onFunctionForwardPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                     <graphic>
+                        <ImageView fx:id="functionForwardImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@MoreFuncArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <Button id="settings" fx:id="helpButton" focusTraversable="false" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onHelpPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <graphic>
+            <ImageView fx:id="helpImageView" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" x="-1.0" y="2.0">
+               <image>
+                  <Image url="@help.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

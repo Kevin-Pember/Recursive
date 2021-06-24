@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="helpAnchorPane" fx:id="baseHelp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="311.0" stylesheets="@application/applicationSkin.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helpPackage.helpController">
+   <children>
+      <ScrollPane id="helpScrollAchorPane" fitToWidth="true" layoutY="75.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="459.0" prefWidth="311.0" style="-fx-padding: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="458.0" prefWidth="311.0">
+               <children>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="594.0" prefWidth="311.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button id="helpMenuButton" fx:id="mainCalculatorButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMainCalculatorButtonPressed" prefHeight="74.0" prefWidth="311.0" text="Main Calculator">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fx:id="mainCalculatorImageView" cache="true" fitHeight="34.0" fitWidth="21.9" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@CalculatorIconWhite.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button id="helpMenuButton" fx:id="customFunctionsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCustomFunctionsButtonPressed" prefHeight="74.0" prefWidth="311.0" text="Custom Functions">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fx:id="customFunctionsImageView" fitHeight="34.0" fitWidth="21.9" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@customFunctionIconWhite.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button id="helpMenuButton" fx:id="settingsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSettingsButtonPressed" prefHeight="74.0" prefWidth="311.0" text="Settings">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fx:id="settingsImageView" fitHeight="34.0" fitWidth="50.37" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@settingsPageIconWhite.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label id="customFunctionTitle" fx:id="HelpTitle" alignment="BOTTOM_LEFT" prefHeight="84.0" prefWidth="301.0" style="-fx-padding: 10;" text="Help" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <AnchorPane id="helpMainCaculatorTab" fx:id="mainCalculatorPageAnchorPane" prefHeight="534.0" prefWidth="311.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label id="helpMainCacTitleLabel" alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="294.0" style="-fx-padding: 10;" text="Main Calculator" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <ScrollPane fitToWidth="true" layoutY="75.0" prefHeight="1480.0" prefWidth="311.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1165.0" prefWidth="309.0">
+                     <children>
+                        <Label id="helpMainCacSubTitleLabel" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="Memory function" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutY="54.0" prefHeight="228.0" prefWidth="295.0" style="-fx-background-radius: 0;" text="MRC works to both recall and deletes a recorded number. To first recall a number press the MRC button then the number will appear in the entry field. To use the MRC button to delete the recorded value, press it when the only value in the entry field &#10; &#10;M or memory add button adds whatever is in the entry field to the recorded value, this includes any operators so if there is a multiplication sign in front of the number it will then it multiply the recorded value by that number" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" />
+                        <Label id="helpMainCacSubTitleLabel" layoutX="1.0" layoutY="282.0" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="RAD and DEG mode" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutY="336.0" prefHeight="73.0" prefWidth="295.0" style="-fx-background-radius: 0;" text="Whatever the button’s currently displaying is what mode it's in, press it to change it. Whenever recursive starts it defaults to degrees." wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" />
+                        <Label id="helpMainCacSubTitleLabel" layoutY="409.0" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="Parenthesis buttons behavior" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutX="1.0" layoutY="460.0" prefHeight="294.0" prefWidth="310.0" style="-fx-background-radius: 0;" text="When you press this button depending on if there is or isn’t already a front parenthesis it will type the corresponding sign needed to start or end a parenthesis statement.&#10;&#10;If there isn’t a front parenthesis ‘(’ or all parenthesis before caret position already form a complete statement or both a front and back parenthesis the button will type a front parenthesis. It will also type a front parenthesis if the character before the caret is also a front parenthesis.&#10;&#10;If the conditions do not meet any of the conditions stated above the parenthesis button with type a back parenthesis ‘)’.&#10;" wrapText="true" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-2.0" />
+                        <Label id="helpMainCacSubTitleLabel" layoutY="754.0" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="Caret or Power of Function" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutY="808.0" prefHeight="138.0" prefWidth="310.0" style="-fx-background-radius: 0;" text="There are two caret buttons within the typeface of recursive; the larger of the two just type the caret symbol into the entry field. The smaller changes the numbers, plus, minus, and parenthesis buttons to type their superscript equivalent forms which will be processed at solve time. To switches these buttons back " wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Label id="helpMainCacSubTitleLabel" layoutX="1.0" layoutY="946.0" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="Decimal to Fraction function" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutY="997.0" prefHeight="57.0" prefWidth="310.0" style="-fx-background-radius: 0;" text="Otherwise noted as d→f, this function converts a decimal to a fraction" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Label id="helpMainCacSubTitleLabel" layoutX="1.0" layoutY="1054.0" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="Delete history button" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutY="1108.0" prefHeight="57.0" prefWidth="310.0" style="-fx-background-radius: 0;" text="This is the button with a trash can and an arrow pointing down" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="helpMainCaculatorTab" fx:id="CustomFunctionsPageAnchorPane" layoutY="5.0" prefHeight="534.0" prefWidth="311.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label id="helpMainCacTitleLabel" alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="294.0" style="-fx-padding: 10;" text="Custom Functions" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <ScrollPane id="helpScroll" fitToWidth="true" layoutY="75.0" prefHeight="1480.0" prefWidth="311.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="309.0">
+                     <children>
+                        <Label id="helpMainCacSubTitleLabel" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="V1" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutY="114.0" prefHeight="146.0" prefWidth="310.0" style="-fx-background-radius: 0;" text="Equations that are used in these functions can’t have an equal or if they do they must be equal too as currently recursive can’t isolate variables &#10;&#10;Functions may no longer function after recursive is updated and may need to be retyped &#10;" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" />
+                        <Label id="helpMainCacSubTitleLabel" layoutX="8.0" layoutY="60.0" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="Functions" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <Label id="helpMainCacSubTitleLabel" layoutX="8.0" layoutY="260.0" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="Graphs" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutY="314.0" prefHeight="92.0" prefWidth="310.0" style="-fx-background-radius: 0;" text="After changing a value in the domain or range to a particularly high value may take time and windows may mark it as not responding but it is calculating the values in the graph" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="helpMainCaculatorTab" fx:id="settingsPageAnchorPane" prefHeight="534.0" prefWidth="311.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label id="helpMainCacTitleLabel" alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="294.0" style="-fx-padding: 10;" text="Settings" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <ScrollPane fitToWidth="true" layoutY="75.0" prefHeight="92.0" prefWidth="311.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="658.0" prefWidth="309.0">
+                     <children>
+                        <Label id="helpMainCacSubTitleLabel" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="Look &amp; Feel" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutY="54.0" prefHeight="144.0" prefWidth="295.0" style="-fx-background-radius: 0;" text="The colors section of look and feel is for choosing the individual colors of certain parts of recursive. This gives you more power to customize recursive.&#10;&#10;The themes section of recursive has the preset themes of dark and light with more on the way.&#10;" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" />
+                        <Label id="helpMainCacSubTitleLabel" layoutX="1.0" layoutY="198.0" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="Preferences" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutY="252.0" prefHeight="176.0" prefWidth="295.0" style="-fx-background-radius: 0;" text="Output Length is the length of numbers that recursive returns. If the number recursive solves is longer than this length it will change the number into the scientific notation of that number.&#10;&#10;Default domain and range are the default values that a graph custom function goes to by default. These values are only the default and can be changed in the custom graph itself" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" />
+                        <Label id="helpMainCacSubTitleLabel" layoutY="428.0" prefHeight="48.0" prefWidth="294.0" style="-fx-padding: 10;" text="Window Size" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="helpMainCacTextLabel" editable="false" layoutY="482.0" prefHeight="176.0" prefWidth="295.0" style="-fx-background-radius: 0;" text="This section controls the size the window will be with the entry fields on the side and the bottom corresponding to the height and width of the window&#10;&#10;The lock icon in the top left controls if the window is resizable or not. If the lock matches the text color then the window isn’t resizable and if it's gray then it is." wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#onBackButtonPressed" prefHeight="25.0" prefWidth="25.0" style="-fx-padding: 0; -fx-background-color: transparent; -fx-background-radius: 0;">
+         <graphic>
+            <ImageView fx:id="backIconImageView" cache="true" fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+               <image>
+                  <Image url="@MoreFuncArrowWhite.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

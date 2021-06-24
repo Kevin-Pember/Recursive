@@ -1,7 +1,0 @@
-displayColor:#363636
-numbersColor:#000000
-functionsColor:#444444
-textColor:false
-outputLength:16
-defaultDomain:-10.0,10.0
-defaultRange:-10.0,10.0

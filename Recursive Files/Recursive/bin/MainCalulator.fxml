@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright 2020, 2021 Kevin Pember -->
+<!-- 
+ 	This file is part of Recursive.
+
+	Recursive is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Recursive is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Recursive.  If not, see <https://www.gnu.org/licenses/>.
+ -->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane id="mainCalculatorTabPane" fx:id="tabbedPane" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="311.0" stylesheets="@application/applicationSkin.css" tabClosingPolicy="ALL_TABS" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainCalulatorPackage.MainCalulatorControllClass">
+  <tabs>
+    <Tab id="mainCalculatorTab" fx:id="mainTab" closable="false" styleClass=".tab" text="Main">
+         <content>
+            <AnchorPane fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="312.0">
+               <children>
+                  <AnchorPane id="mainCalculatorAnchorPane" fx:id="calcButtons" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="312.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <GridPane cacheShape="false" layoutY="103.0" prefHeight="591.0" prefWidth="412.0" scaleShape="false" style="-fx-padding: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="103.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Button id="num1" fx:id="Num1" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNum1Pressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="num2" fx:id="Num2" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNum2Pressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="2" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="num3" fx:id="Num3" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNum3Pressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="3" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="moreFunctions" fx:id="moreFunctions" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMoreFunctionsPressed" pickOnBounds="false" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-padding: 5; -fx-line-spacing: -10;" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                                 <graphic>
+                                    <Text id="moreFunctionsText" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="More Functions" wrappingWidth="64.13671875">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Text>
+                                 </graphic>
+                              </Button>
+                              <Button id="num4" fx:id="Num4" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNum4Pressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="4" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="num5" fx:id="Num5" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNum5Pressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="num6" fx:id="Num6" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNum6Pressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="moreFunctionsArrow" fx:id="moreFunctionsArrow" focusTraversable="false" mnemonicParsing="false" onAction="#onMoreFunctionsArrowPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                                 <graphic>
+                                    <ImageView fx:id="moreFuncArrowButtonImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@MoreFuncArrow.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="backspace" fx:id="backButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBackButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-padding: 0;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fx:id="backButtonImageView" fitHeight="26.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@backIconWhite.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="ac" fx:id="allClearButton" focusTraversable="false" mnemonicParsing="false" onAction="#onAllClearButtonPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" text="AC" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                              <Button id="num7" fx:id="Num7" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNum7Pressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="7" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="num8" fx:id="Num8" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNum8Pressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="num9" fx:id="Num9" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNum9Pressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="plus" fx:id="plusButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPlusButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="pi" fx:id="pieButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPieButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="π" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="num0" fx:id="Num0" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNum0Pressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="point" fx:id="pointButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPointButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="." GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="minus" fx:id="minusButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMinusButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="percent" fx:id="percentButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPercentButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="\%" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="pars" fx:id="parButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onParButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="( )" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="powerOf" fx:id="toPowerOFButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onToPowerOFButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="^" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="multiplication" fx:id="mutiplyButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMutiplyButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="×" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="enter" fx:id="enterButton" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEnterButtonPressed" prefHeight="98.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-padding: 0;" text="enter" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <Button id="powerOf2" fx:id="squaredButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSquaredButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="x²" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="root2" fx:id="squareRootButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSquareRootButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="√x" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="division" fx:id="divideButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDivideButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="÷" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button id="ac" fx:id="superscriptUp" focusTraversable="false" mnemonicParsing="false" onAction="#onsuperscriptUpPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" text="^" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+                           </children>
+                        </GridPane>
+                        <Label id="memoryTextField" fx:id="memDisplay" layoutX="65.0" layoutY="84.0" prefHeight="18.0" prefWidth="222.0" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="37.0" />
+                        <TextField id="currentEntryTextField" fx:id="uifCalulator" alignment="CENTER_RIGHT" layoutY="22.0" onKeyPressed="#onEnterKeyPressed" prefHeight="63.0" prefWidth="412.0" stylesheets="@application/applicationSkin.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="35.0" />
+                           </font>
+                        </TextField>
+                        <TextField id="previousEntryTextField" fx:id="uifPrevious" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" layoutX="27.0" prefHeight="44.0" prefWidth="382.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <Button id="settings" fx:id="SettingsButton" focusTraversable="false" layoutX="-2.0" layoutY="-1.4" mnemonicParsing="false" onAction="#onSettingsPress" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;">
+                           <graphic>
+                              <ImageView fx:id="settingsButtonImageView" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" x="-1.0" y="2.0">
+                                 <image>
+                                    <Image url="@SettingsCogIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button id="memoryRecallClear" fx:id="memRecallClearButton" focusTraversable="false" layoutY="82.0" mnemonicParsing="false" onAction="#onMemRecallClearButtonPressed" prefHeight="23.0" prefWidth="36.0" style="-fx-background-color: transparent;" text="MRC" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button id="memoryRecord" fx:id="memAddButton" focusTraversable="false" layoutX="36.0" layoutY="82.0" mnemonicParsing="false" onAction="#onMemAddButtonPressed" prefHeight="19.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="M" AnchorPane.leftAnchor="36.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button id="calculatorMode" fx:id="modeSwitch" focusTraversable="false" layoutX="375.0" layoutY="82.0" mnemonicParsing="false" onAction="#onModeSwitchPressed" prefHeight="19.0" prefWidth="35.0" style="-fx-background-color: transparent;" text="DEG" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <GridPane fx:id="dividerGridPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="505.0" prefWidth="539.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints fx:id="zeroColum" hgrow="ALWAYS" minWidth="10.0" percentWidth="57.1428" prefWidth="292.0" />
+                      <ColumnConstraints fx:id="oneColum" hgrow="ALWAYS" minWidth="10.0" percentWidth="42.8571" prefWidth="210.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane id="extraFunctionsAnchorPane" fx:id="extenedCalcButtons" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="234.0" GridPane.columnIndex="1">
+                           <children>
+                              <TextArea id="historyTextArea" fx:id="historyTextPane" editable="false" focusTraversable="false" prefHeight="237.0" prefWidth="235.0" style="-fx-control-inner-background: transparent; -fx-background-color: transparent;" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextArea>
+                              <Label id="historyLabel" fx:id="historyLabel" prefHeight="44.0" prefWidth="99.0" text="History" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="135.0">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Button id="settings" fx:id="helpButton" focusTraversable="false" mnemonicParsing="false" onAction="#onHelpPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <graphic>
+                                    <ImageView fx:id="helpImageView" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" x="-1.0" y="2.0">
+                                       <image>
+                                          <Image url="@help.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <GridPane layoutY="238.0" prefHeight="267.0" prefWidth="231.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="238.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Button id="decimalToFraction" fx:id="deciToFracButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDeciToFracButton" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" stylesheets="@application/applicationSkin.css" text="d→f">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="factorial" fx:id="factorialButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onFactorialButtonPressed" prefHeight="54.0" prefWidth="84.0" style="-fx-background-radius: 0;" text="n!" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="clearHistory" fx:id="deleteHistoryButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onHistoryDeleteButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-padding: 0;" GridPane.columnIndex="2">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fx:id="deleteHistoryButtonImageView" fitHeight="35.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@HistoryIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button id="sin" fx:id="sinButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSinButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="sin" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="arc" fx:id="inverseButton" alignment="CENTER" contentDisplay="TOP" focusTraversable="false" mnemonicParsing="false" onAction="#onInverseButtonPressed" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: transparent;" text="arc" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Button>
+                                    <Button id="cos" fx:id="cosButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCosButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="cos" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="tan" fx:id="tanButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTanButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="tan" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="csc" fx:id="cscButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCscPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="csc" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="sec" fx:id="secButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSecPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="sec" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="cot" fx:id="cotButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCotPressed" prefHeight="51.0" prefWidth="81.0" style="-fx-background-radius: 0;" text="cot" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="log10" fx:id="logButton" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onLogButtonPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="log₁₀" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="ln" fx:id="naturalLog" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNaturalLogPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="ln" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="eButton" fx:id="NumE" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNumEPressed" prefHeight="99.0" prefWidth="103.0" style="-fx-background-radius: 0;" text="e" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                              <Line id="dividerLine" fx:id="sepLine" endY="5000.0" strokeWidth="1.3" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </content>
+    </Tab>
+  </tabs>
+</TabPane>
