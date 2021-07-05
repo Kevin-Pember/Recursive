@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import mainCalulatorPackage.MainCalulatorControllClass;
 
-public class helpController extends Main{
+public class HelpController extends Main{
 	 @FXML
 	    private AnchorPane baseHelp;
 

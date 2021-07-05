@@ -19,12 +19,6 @@ package processing;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.LinkedList;
-
-import javafx.application.Platform;
-import javafx.stage.Stage;
 
 public class CalculatorProcessing {
 	String piCon = "3.14159265358979323846264338327950288419716939937510582097494459230781640628";
@@ -46,6 +40,7 @@ public class CalculatorProcessing {
 	public String solve(String userInput, boolean end) {
 		 System.out.println(mc.toString());
 		 System.out.println("Input math ran");
+		 System.out.println("This is input "+userInput);
 		 String resultValue ="";
 	     int frontParse = 0;
 	     userInput = userInput.replaceAll(" ","");

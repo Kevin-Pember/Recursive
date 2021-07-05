@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane fx:id="themeAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="118.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settingsPackage.ThemesController">
+   <children>
+      <RadioButton id="lightThemeRadio" fx:id="themeRadioButton" focusTraversable="false" layoutX="1.0" mnemonicParsing="false" onAction="#onThemeRadioButtonPressed" prefHeight="18.0" prefWidth="118.0" style="-fx-background-color: transparent;" text="Theme Name" />
+      <AnchorPane fx:id="repAnchorPane" layoutY="19.0" prefHeight="154.0" prefWidth="118.0" stylesheets="@application/applicationSkin.css">
+         <children>
+            <Rectangle id="displayRep" arcHeight="5.0" arcWidth="5.0" fill="#fefefe" height="133.0" stroke="BLACK" strokeType="INSIDE" style="-fx-background-radius: 0;" width="118.0" />
+            <Rectangle id="funcsRep" arcHeight="5.0" arcWidth="5.0" fill="#e3e3e3" height="124.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" style="-fx-background-radius: 0;" width="118.0" />
+            <Rectangle id="numsRep" arcHeight="5.0" arcWidth="5.0" fill="#f2f2f2" height="85.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" style="-fx-background-radius: 0;" width="95.0" />
+            <Text id="textRep" fx:id="tText" layoutX="104.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="T" wrappingWidth="11.472808837890625">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="92.0" layoutY="3.0" mnemonicParsing="false" onAction="#onXButtonPressed" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent; -fx-padding: 0;" visible="false" fx:id="xButton">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" fx:id="xIcon"></ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

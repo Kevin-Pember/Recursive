@@ -18,24 +18,14 @@
     along with Recursive.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ColorPicker?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="853.0" stylesheets="@application/applicationSkin.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settingsPackage.SettingsControllClass">
+<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="853.0" stylesheets="@application/applicationSkin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settingsPackage.SettingsControllClass">
    <children>
       <AnchorPane id="aboutAchorPane" fx:id="aboutAnchorPane" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="853.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -50,13 +40,14 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="825.0" layoutY="451.0" prefHeight="35.0" prefWidth="54.0" text="V1.3" textAlignment="CENTER" textFill="GREY" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <Label alignment="CENTER" layoutX="825.0" layoutY="451.0" prefHeight="35.0" prefWidth="54.0" text="V1.4" textAlignment="CENTER" textFill="GREY" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000036" height="200.0" layoutX="776.0" layoutY="416.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-rotate: 45;" width="200.0" />
       <AnchorPane id="lookAndFeelAchorPane" fx:id="lookAndFeelAnchorPane" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="853.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label id="lookAndFeelLabel" fx:id="lookNFeelLabel" layoutX="152.0" prefHeight="35.0" prefWidth="480.0" style="-fx-background-color: transparent;" text="Look &amp; Feel" AnchorPane.rightAnchor="221.0">
@@ -86,28 +77,18 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <ScrollPane fx:id="presetThemesScrollPane" focusTraversable="false" layoutX="152.0" layoutY="275.0" prefHeight="204.0" prefWidth="699.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="3.0">
+            <ScrollPane fx:id="presetThemesScrollPane" fitToHeight="true" focusTraversable="false" layoutX="152.0" layoutY="275.0" prefHeight="197.0" prefWidth="698.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="3.0">
                <content>
                   <AnchorPane fx:id="presetThemesAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="203.0" prefWidth="693.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fefefe" height="133.0" layoutX="9.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" style="-fx-background-radius: 0;" width="118.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e3e3" height="129.0" layoutX="9.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" style="-fx-background-radius: 0;" width="118.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f2" height="90.0" layoutX="10.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" style="-fx-background-radius: 0;" width="94.0" />
-                        <Text layoutX="112.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="T" wrappingWidth="11.472808837890625">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <RadioButton id="lightThemeRadio" fx:id="lightThemeRadioButton" focusTraversable="false" layoutX="9.0" mnemonicParsing="false" onAction="#onLightThemeRadioButtonPressed" prefHeight="18.0" prefWidth="90.0" style="-fx-background-color: transparent;" text="Light Theme" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#303030" height="133.0" layoutX="142.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" style="-fx-background-radius: 0;" width="118.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="129.0" layoutX="142.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" style="-fx-background-radius: 0;" width="118.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1a1a1a" height="90.0" layoutX="143.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" style="-fx-background-radius: 0;" width="94.0" />
-                        <Text fill="WHITE" layoutX="245.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="T" wrappingWidth="11.472808837890625">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <RadioButton id="darkThemeRadio" fx:id="darkThemeRadioButton" focusTraversable="false" layoutX="142.0" mnemonicParsing="false" onAction="#onDarkThemeRadioButtonPressed" prefHeight="18.0" prefWidth="90.0" style="-fx-background-color: transparent;" text="Dark Theme" />
+                        <GridPane fx:id="themesGridPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
                      </children>
                   </AnchorPane>
                </content>
@@ -118,6 +99,16 @@
                   <Font size="23.0" />
                </font>
             </Label>
+            <Button id="addButton" fx:id="newThemeButton" layoutX="821.0" layoutY="246.0" mnemonicParsing="false" onAction="#onNewThemeButtonPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" AnchorPane.rightAnchor="2.0">
+               <graphic>
+                  <ImageView fx:id="addObjectImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+            <Button id="addButton" fx:id="removeThemeButton" layoutX="790.0" layoutY="246.0" mnemonicParsing="false" onAction="#onRemoveThemeButtonPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" AnchorPane.rightAnchor="33.0">
+               <graphic>
+                  <ImageView fx:id="removeObjectImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane id="preferencesAchorPane" fx:id="preferencesAnchorPane" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="853.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -154,11 +145,7 @@
             <TextField id="outputLengthTextField" fx:id="windowWidthTextField" layoutX="201.0" layoutY="435.0" onKeyTyped="#onOutputLengthTextFieldInput" prefHeight="25.0" prefWidth="54.0" style="-fx-background-radius: 0;" />
             <Button fx:id="windowLockButton" layoutX="295.0" layoutY="237.0" mnemonicParsing="false" onAction="#onResizeabilityLockPressed" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: transparent; -fx-padding: 0;">
                <graphic>
-                  <ImageView fx:id="lockWindowImageView" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@lockIcon.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="lockWindowImageView" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
          </children>
@@ -167,11 +154,7 @@
          <children>
             <Button fx:id="backToFrontButton" mnemonicParsing="false" onAction="#backToFrontPressMethod" prefHeight="22.0" prefWidth="36.0" style="-fx-background-color: transparent; -fx-padding: 0;" textAlignment="CENTER" textFill="#fdf9f9">
                <graphic>
-                  <ImageView fx:id="backToFrontImageView" fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
-                     <image>
-                        <Image url="@MoreFuncArrowWhite.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="backToFrontImageView" fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;" />
                </graphic>
             </Button>
             <Button fx:id="lookAndFeelMenuButton" mnemonicParsing="false" onAction="#onlookNFeelMenuButtonPressed" prefHeight="18.0" prefWidth="146.0" style="-fx-background-color: transparent;" text=" Look &amp; Feel" textAlignment="CENTER" textFill="#fdf9f9">
@@ -194,11 +177,7 @@
       </VBox>
       <Button id="settings" fx:id="helpButton" focusTraversable="false" mnemonicParsing="false" onAction="#onHelpPressed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-padding: 0;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <graphic>
-            <ImageView fx:id="helpImageView" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" x="-1.0" y="2.0">
-               <image>
-                  <Image url="@help.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="helpImageView" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" x="-1.0" y="2.0" />
          </graphic>
       </Button>
    </children>

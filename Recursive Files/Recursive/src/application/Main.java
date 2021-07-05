@@ -16,67 +16,27 @@
     along with Recursive.  If not, see <https://www.gnu.org/licenses/>.
 */
 package application;
-import java.awt.Font; 
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.LinkedList;
-import java.util.Scanner;
 
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.SwingConstants;
-
-import helpPackage.helpController;
+import helpPackage.HelpController;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import mainCalulatorPackage.MainCalulatorControllClass;
-import mainCalulatorPackage.MoreFunctionsPage;
-import processing.CalculatorProcessing;
-import settingsPackage.SettingsControllClass;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.robot.Robot;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import mainCalulatorPackage.MainCalulatorControllClass;
+import moreFunctionsPackage.MoreFunctionsPage;
+import processing.CalculatorProcessing;
+import settingsPackage.SettingsControllClass;
+
+import java.io.File;
+import java.math.MathContext;
+import java.math.RoundingMode;
 
 public class Main extends Application {
 	
@@ -93,8 +53,8 @@ public class Main extends Application {
 	boolean textColor = true;
 	protected boolean cacMode = true;
 	protected boolean extendedFuncOpen = false;
-	//protected Group root = new Group();
-	//protected Scene CalulatorScene = new Scene(root, Color.web(displayColor));
+	protected Group root = new Group();
+	protected Scene CalulatorScene = new Scene(root, Color.web(displayColor));
 	protected Scene settingsScene;
 	protected Scene mainCalulatorScene;
 	protected Scene extendFuncsScene;
@@ -110,7 +70,7 @@ public class Main extends Application {
 	protected MainCalulatorControllClass mainCalulatorController;
 	protected SettingsControllClass settingsController;
 	protected MoreFunctionsPage extendFunctionsController;
-	protected helpController helpPageController;
+	protected HelpController helpPageController;
 	protected final String piCon = "3.14159265358979323846264338327950288419716939937510582097494459230781640628";
 	public MathContext mc = new MathContext(16,RoundingMode.HALF_DOWN);
 	protected CalculatorProcessing mainProcess = new CalculatorProcessing(mc,cacMode);
@@ -120,7 +80,7 @@ public class Main extends Application {
 public void start(Stage primaryStage) throws Exception{
 		if (textColor == true) {
 			fontColor = "#000000";
-		}else if (textColor == false) {
+		}else if (!textColor) {
 			fontColor = "#FFFFFF";
 		}
 		System.out.println("entering");
@@ -134,7 +94,7 @@ public void start(Stage primaryStage) throws Exception{
 		settingsRoot = settingsLoader.load();
 		settingsScene = new Scene(settingsRoot);
 		
-		extendFunctionsLoader = new FXMLLoader(getClass().getResource("/moreFunctionsPage.fxml"));
+		extendFunctionsLoader = new FXMLLoader(getClass().getResource("/MoreFunctionsPage.fxml"));
 		extendFuncsRoot = extendFunctionsLoader.load();
 	    extendFuncsScene = new Scene(extendFuncsRoot,311.2,505.6);
 	    
@@ -144,19 +104,17 @@ public void start(Stage primaryStage) throws Exception{
 		
 		primaryStage.setScene(mainCalulatorScene);
 		primaryStage.show();
-		primaryStage.setWidth(323);
-		primaryStage.setHeight(579);
 		primaryStage.setMinHeight(579);
-		primaryStage.setMinWidth(333);
+		primaryStage.setMinWidth(330);
 		primaryStage.setTitle("Recursive");
-		Image mainIcon = new Image("mainIcon.png");
+		Image mainIcon = new Image("icons/mainIcon.png");
 		primaryStage.getIcons().add(mainIcon);
 		thisStage = primaryStage;
 			
 		extendFunctionsController = (MoreFunctionsPage) extendFunctionsLoader.getController();
 		mainCalulatorController = (MainCalulatorControllClass) mainCalulatorLoader.getController();
 		settingsController = (SettingsControllClass) settingsLoader.getController();
-		helpPageController = (helpController) helpPageLoader.getController();
+		helpPageController = (HelpController) helpPageLoader.getController();
 			
 		mainCalulatorController.setSettingsScene(settingsScene,thisStage);
 		mainCalulatorController.setExtendFuncsScene(extendFuncsScene);
@@ -198,88 +156,88 @@ public boolean fileOutDiector() {
 public String iconColoration(String moreFuncIcon, boolean color) {
 	 switch(moreFuncIcon) {
 	   case("moreFuncIcon"):
-		   if (color == true) {
-			   return "MoreFunc.png";
+		   if (color) {
+			   return "icons/MoreFunc.png";
 		   }else {
-			   return "MoreFuncWhite.png";
+			   return "icons/MoreFuncWhite.png";
 		   }
 	   case("moreFuncArrowIcon"):
-		   if (color == true) {
-			   return "MoreFuncArrow.png";
+		   if (color) {
+			   return "icons/MoreFuncArrow.png";
 		   }else {
-			   return "MoreFuncArrowWhite.png";
+			   return "icons/MoreFuncArrowWhite.png";
 		   }
 	   case("backIcon"):
-		   if (color == true) {
-			   return "backIcon.png";
+		   if (color) {
+			   return "icons/backIcon.png";
 		   }else {
-			   return "backIconWhite.png";
+			   return "icons/backIconWhite.png";
 		   }
 	   case("enterIcon"):
-		   if (color == true) {
-			   return "enterIcon.png";
+		   if (color) {
+			   return "icons/enterIcon.png";
 		   }else {
-			   return "enterIconWhite.png";
+			   return "icons/enterIconWhite.png";
 		   }
 	   case("settingsCogIcon"):
-		   if (color == true) {
-			   return "SettingsCogIcon.png";
+		   if (color) {
+			   return "icons/SettingsCogIcon.png";
 		   }else {
-			   return "SettingsCogIconWhite.png";
+			   return "icons/SettingsCogIconWhite.png";
 		   }
 	   case("historyThrowIcon"):
-		   if (color == true) {
-			   return "HistoryIcon.png";
+		   if (color) {
+			   return "icons/HistoryIcon.png";
 		   }else {
-			   return "HistoryIconWhite.png";
+			   return "icons/HistoryIconWhite.png";
 		   }
 	   case("addObject"):
-		   if (color == true) {
-			   return "addObject.png";
+		   if (color) {
+			   return "icons/addObject.png";
 		   }else {
-			   return "addObjectWhite.png";
+			   return "icons/addObjectWhite.png";
 		   }
 	   case("minusIcon"):
-		   if (color == true) {
-			   return "minusIcon.png";
+		   if (color) {
+			   return "icons/minusIcon.png";
 		   }else {
-			   return "minusIconWhite.png";
+			   return "icons/minusIconWhite.png";
 		   }
 	   case("xIcon"):
-		   if (color == true) {
-			   return "xIcon.png";
+		   if (color) {
+			   return "icons/xIcon.png";
 		   }else {
-			   return "xIconWhite.png";
+			   return "icons/xIconWhite.png";
 		   }
 	   case("lockIcon"):
-		   if(color == true) {
-			   return "lockIcon.png";
+		   if(color) {
+			   return "icons/lockIcon.png";
 		   }else {
-			   return "lockIconWhite.png";
+			   return "icons/lockIconWhite.png";
 		   }
 	   case("helpIcon"):
-		   if(color == true) {
-			   return "help.png";
+		   if(color) {
+			   return "icons/help.png";
 		   }else {
-			   return "helpWhite.png";
+			   return "icons/helpWhite.png";
 		   }
 	   case("CalculatorIcon"):
-		   if(color == true) {
-			   return "CalculatorIcon.png";
+		   if(color) {
+			   return "icons/CalculatorIcon.png";
 		   }else {
-			   return "CalculatorIconWhite.png";
+			   return "icons/CalculatorIconWhite.png";
 		   }
 	   case("CustomFunctionIcon"):
-		   if(color == true) {
-			   return "customFunctionIcon.png";
+		   if(color) {
+			   return "icons/customFunctionIcon.png";
 		   }else {
-			   return "customFunctionIconWhite.png";
+			   return "icons/customFunctionIconWhite.png";
 		   }
 	   case("SettingsIcon"):
-		   if(color == true) {
-			   return "settingsPageIcon.png";
+		   if(color) {
+			   return "icons/settingsPageIcon.png";
 		   }else {
-			   return "settingsPageIconWhite.png";
+			   return "icons/settingsPageIconWhite.png";
 		   }
 	   default:
 		   return "Unresolved";
